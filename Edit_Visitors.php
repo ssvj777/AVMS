@@ -3,7 +3,7 @@
 $id =$_GET['id'];
 
 $connection=mysqli_connect("localhost","root","",);
-$db=mysqli_select_db($connection,'project');
+$db=mysqli_select_db($connection,'AVMS');
 
 $query="select * from Visitors where id=$id";
 $result = mysqli_query($connection,$query);
@@ -38,7 +38,7 @@ $re=$row["Remark"];
     
         body
         {
-            background-image:url(city.jpg);
+            background-image:url(Main_Image.jpg);
             background-size: cover;
             background-repeat: no-repeat;  
         }
@@ -204,22 +204,22 @@ $re=$row["Remark"];
     <div class="list">
     <ul>
     <li><h1 class="hh">  <i> AVMS </i> </h1></li>
-            <li><a href="Dash.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
-            <li><a href="Visitor.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
-            <li><a href="manage.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
-            <li><a href="report.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+            <li><a href="Dashboard.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="Visitors.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+            <li><a href="Manage_Visitors.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+            <li><a href="Report_Page.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
             <li class="dropdown">
                 <a class="dropbtn"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
                 <div class="dropdown-content">    
-                    <a href="profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
-                    <a href="Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                    <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                    <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
                     <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 
-    <form action="search.php" method="post">
+    <form action="Search_Bar.php" method="post">
             <div class="search">
                 <input type="text" class="s" name="search" size="28cm" placeholder="Search Visitor by name or mobile number ">
                 <button type="submit" class="blue"><i class="bi-search"></i></button>
@@ -227,7 +227,7 @@ $re=$row["Remark"];
     </form>   
 
     <h1 class="head" align="center" ><b>Update Visitors</b></h1>
-    <form action="edit2.php" method="post">
+    <form action="Update_Visitors.php" method="post">
 
     <div id="box">           
     <table>

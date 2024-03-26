@@ -1,7 +1,7 @@
 <?php
     
     
-    $connection= mysqli_connect("localhost","root","","Project");
+    $connection= mysqli_connect("localhost","root","","AVMS");
 
 
         if(isset($_POST['update']))
@@ -15,11 +15,11 @@
 
             if($query_run)
             {
-                echo "<script> alert('profile updated');window.location='profile.php'</script>";
+                echo "<script> alert('Profile Updated');window.location='Admin_Profile.php'</script>";
                 
             }
             else{
-                echo '<script type="text/javascript"> alert("data  not updated")</script>';
+                echo '<script type="text/javascript"> alert("Profile not Updated")</script>';
             }
         }
     ?>

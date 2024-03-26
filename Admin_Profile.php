@@ -1,36 +1,24 @@
-<?php
 
-    $connection= mysqli_connect("localhost","root","","Project");
-    if(!empty($_POST['save']))
-    {
-        $op=$_POST['oldpass'];
-        $np=$_POST['newpass'];
-        $cnp=$_POST['cnewpass'];
+<?php 
 
-        if($np==$cnp)
-        {
-            $query="select * from Admin where Password='$op' ";
-            $result=mysqli_query($connection,$query);
-            $count=mysqli_num_rows($result);
-            if($count>0){
-                $query="update Admin set Password='$np'";
-                mysqli_query($connection,$query) ;
 
-                echo "<script> alert('Password Successfully Changed');window.location='password.php' </script>";
-            }
-            else
-            {
 
-                echo "<script> alert('Old Password does not match');window.location='password.php' </script>";
-            }
-        }
-        else
-        {
-            echo "<script> alert(' New Password & Confirm New Password does not match');window.location='password.php' </script>";
-        }
-    }
+$connection=mysqli_connect("localhost","root","",);
+$db=mysqli_select_db($connection,'AVMS');
+
+$query="select * from Admin";
+$result = mysqli_query($connection,$query);
+$row = mysqli_fetch_assoc($result);
+
+$id = $row['id'];
+$an = $row['AdminName'];
+$mob = $row['MobileNumber'];
+$mail = $row['Email'];
+$date = $row['RegisterDate'];
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
+    <title> Update Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         .head
@@ -55,7 +43,7 @@
         table
         {
             border-style: solid;   
-            padding: 1.2cm;
+            padding: 1cm;
             border-radius: 17px;
             font-size: 28px;
         }
@@ -65,7 +53,7 @@
             padding-right: 1cm;
             padding-top: 1mm;
             padding-bottom: 1mm;
-            font-size: 17px;
+            font-size: 18px;
             box-shadow: 0 15px 25px rgba(0,0,0,.5);
             background:rgba(0,0,0,.8);
             color: green;
@@ -85,8 +73,8 @@
             color: white;
             width:fit-content;
             border-radius: 17px; 
-            margin-left: 6cm;
-            margin-top: 1cm;
+            margin-left: 6.2cm;
+            margin-top: 08mm;
         }
         .button
         {
@@ -95,7 +83,7 @@
             height: 33px;
             color: white;
             background-color:#0097a7;
-            font-size: 17px;
+            font-size: 15px;
             border-radius: 17px;
             margin-left: 22cm;
             margin-top: 7mm;    
@@ -107,7 +95,7 @@
         }
         body
         {
-            background-image:url(city.jpg);
+            background-image:url(Main_Image.jpg);
             background-size: cover;      
         }
         ul
@@ -133,7 +121,7 @@
         }
         .dropbtn
         {
-            margin-left: 5.4cm;
+            margin-left: 5cm;
         }
         li a:hover,.dropdown:hover .dropbtn
         {
@@ -152,7 +140,7 @@
             display:block;
             text-align: left;
             padding:05mm;  
-            margin-left: 4cm; 
+            margin-left: 3.7cm; 
         }
         .dropdown-content a
         {
@@ -171,6 +159,10 @@
             padding-left: 1cm;
             padding-right: 1cm;
             color:black;
+        }
+        .id
+        {
+        visibility: hidden;
         }
         .s
         {
@@ -206,55 +198,63 @@
     <div class="list">
     <ul>
     <li><h1 class="hh">  <i> AVMS </i> </h1></li>
-            <li><a href="Dash.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
-            <li><a href="Visitor.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
-            <li><a href="manage.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
-            <li><a href="report.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+            <li><a href="Dashboard.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="Visitors.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+            <li><a href="Manage_Visitors.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+            <li><a href="Report_Page.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
             <li class="dropdown">
                 <a class="dropbtn"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
                 <div class="dropdown-content">    
-                    <a href="profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
-                    <a href="Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                    <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                    <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
                     <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 
-    <form action="search.php" method="post">
+    <form action="Search_Bar.php" method="post">
             <div class="search">
                 <input type="text" class="s" name="search" size="28cm" placeholder="Search Visitor by name or mobile number ">
                 <button type="submit" class="blue"><i class="bi-search"></i></button>
             </div>
     </form>
+    
+    <form action="Update_Profile.php" method="post">
 
-
-        <form action="" method="post">
-
-        <h1 class="head"><b>Change Admin Password</b></h1>
+        <h1 class="head"><b>Update Admin Profile</b></h1>
 
     <div id="box">           
     <table>
        
         <tr>
-            <td><label >Current Password</label></td>
-            <td><input type="password"  name="oldpass" class="p" size="47cm" placeholder="Enter Current Password" ></td>
+            <td><label for="name" >Admin Name</label></td>
+            <td><input type="text" id="name" name="name" class="p" value="<?php echo $an;?>" size="47cm"></td>
         </tr>
 
         <tr>
-            <td><label >New Password</label></td>
-            <td><input type="password"  name="newpass" class="p" size="47cm" placeholder="Enter New Password" ></td>
+            <td><label for="phn" >Phone Number</label></td>
+            <td><input type="phone number" id="phn" class="p" required maxlength="10" size="47cm" value="<?php echo $mob;?>" name="number"></td>
         </tr>
 
         <tr>
-            <td><label >Confirm Password</label></td>
-            <td><input type="password"  name="cnewpass" class="p" size="47cm" placeholder="Confirm New Password"></td>
+            <td><label for="email">Email</label></td>
+            <td><input type="email" id="email" name="email" class="p" size="47cm" value="<?php echo $mail;?>"></td>
+        </tr>
+
+        <tr>
+            <td><label for="date">Registration Date</label></td>
+            <td><input type="datetime" id="date" readonly value="<?php echo $date;?>" name="date" class="p" size="47"></td>
         </tr>
 
     </table>
-    </div> 
+    </div>
+            <button type="submit" name="update" class="button">Update</button>
 
-        <input type="submit" name=save class="button" value="CHANGE">
-    </form>
+            <div class="id">
+                <input type="text" value="<?php echo $id;?>" name="id">
+            </div>
+
+    </form>   
 </body>
 </html>

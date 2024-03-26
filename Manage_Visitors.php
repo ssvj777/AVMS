@@ -1,4 +1,10 @@
+<?php
+$connection=mysqli_connect("localhost","root","",);
+$db=mysqli_select_db($connection,'AVMS');
 
+$query="select * from Visitors";
+$query_run=mysqli_query($connection,$query);
+?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
         table th,td
@@ -85,7 +91,7 @@
         }
         body
         {
-            background-image:url(city.jpg);
+            background-image:url(Main_Image.jpg);
             background-size: cover;      
         }
         .head
@@ -116,6 +122,33 @@
             cursor: pointer;
             background:navy;
         }
+        .s
+        {
+            padding-left: 1cm;
+            padding-right: 1cm;
+            padding-top: 1mm;
+            padding-bottom: 1mm;
+            font-size: 17px;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            background:rgba(0,0,0,.8);
+            color: green;
+            border-radius: 3px;
+            background-image: visible;
+            opacity: 100%;
+            font-family: 'Times New Roman', Times, serif;
+           
+        }
+        .search
+        {
+            display:flex;
+            margin-top:3mm;
+        }
+        .blue
+        {
+            background:rgba(240, 248, 255, 0.884);
+            border-radius: 2px;
+            border-color:rgba(240, 248, 255, 0.884);
+        }
         
 </style>
 <body>
@@ -123,20 +156,28 @@
     <div class="list">
     <ul>
     <li><h1 class="hh">  <i> AVMS </i> </h1></li>
-            <li><a href="Dash.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
-            <li><a href="Visitor.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
-            <li><a href="manage.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
-            <li><a href="report.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+            <li><a href="Dashboard.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="Visitors.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+            <li><a href="Manage_Visitors.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+            <li><a href="Report_Page.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
             <li class="dropdown">
                 <a class="dropbtn"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
                 <div class="dropdown-content">    
-                    <a href="profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
-                    <a href="Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                    <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                    <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
                     <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
                 </div>
             </li>
         </ul>
     </div>
+
+    <form action="Search_Bar.php" method="post">
+            <div class="search">
+                <input type="text" class="s" name="search" size="28cm" placeholder="Search Visitor by name or mobile number ">
+                <button type="submit" class="blue"><i class="bi-search"></i></button>
+            </div>
+    </form>
+
 
         <h1 class="head" align="center" ><b>Manage Visitors</b></h1>
     </body>
@@ -147,25 +188,18 @@
             <th> Visitor Name </th>
             <th> Category </th>
             <th> Mobile Number </th>
-            <th> Apartment No </th>
+            <th> Apartment Name </th>
             <th> Whom to Meet </th>
             <th> Action </th>
         </tr>
 
-        <?php
-        $search = $_POST['search'];
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "Project";
-            $conn = new mysqli($servername, $username, $password, $db);
-            $sql = "select * from Visitors where VisitorName like '%$search%' OR  MobileNumber like '%$search%'";
-            $result = $conn->query($sql);
-                    
-                    if ($result->num_rows > 0){
-                    while($row = $result->fetch_assoc() ){
-                       
-                        ?>
+    <?php 
+        if($query_run)
+        {
+            while($row = mysqli_fetch_array($query_run))
+            {
+                $id = $row['id'];
+                ?>
                 <tbody>
 
                     <tr>
@@ -176,9 +210,9 @@
                         <td><?php echo $row['WhomtoMeet']; ?> </td>
 
                         <td>
-                            <form action="details.php" method="GET" value="<?php echo $row['id'] ?>">
+                            <form action="View_Details.php" method="GET" value="<?php echo $row['id'] ?>">
                             <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                            <button href='details.php?id=$id' class="button">View Details</button>
+                            <button href='View_Details.php?id=$id' class="button">View Details</button>
                             </form>
                         </td>
 
@@ -189,7 +223,7 @@
         }
         else
         {
-          
+        
         }
     ?>
     </table>

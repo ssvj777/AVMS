@@ -1,24 +1,36 @@
+<?php
 
-<?php 
+    $connection= mysqli_connect("localhost","root","","AVMS");
+    if(!empty($_POST['save']))
+    {
+        $op=$_POST['oldpass'];
+        $np=$_POST['newpass'];
+        $cnp=$_POST['cnewpass'];
 
+        if($np==$cnp)
+        {
+            $query="select * from Admin where Password='$op' ";
+            $result=mysqli_query($connection,$query);
+            $count=mysqli_num_rows($result);
+            if($count>0){
+                $query="update Admin set Password='$np'";
+                mysqli_query($connection,$query) ;
 
+                echo "<script> alert('Password Changed Successfully');window.location='Admin_Password.php' </script>";
+            }
+            else
+            {
 
-$connection=mysqli_connect("localhost","root","",);
-$db=mysqli_select_db($connection,'Project');
-
-$query="select * from Admin";
-$result = mysqli_query($connection,$query);
-$row = mysqli_fetch_assoc($result);
-
-$id = $row['id'];
-$an = $row['AdminName'];
-$mob = $row['MobileNumber'];
-$mail = $row['Email'];
-$date = $row['RegisterDate'];
-
+                echo "<script> alert('Old Password does not match');window.location='Admin_Password.php' </script>";
+            }
+        }
+        else
+        {
+            echo "<script> alert(' New Password & Confirm New Password does not match');window.location='Admin_Password.php' </script>";
+        }
+    }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +38,7 @@ $date = $row['RegisterDate'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Update Profile</title>
+    <title>Change Password</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         .head
@@ -43,7 +55,7 @@ $date = $row['RegisterDate'];
         table
         {
             border-style: solid;   
-            padding: 1cm;
+            padding: 1.2cm;
             border-radius: 17px;
             font-size: 28px;
         }
@@ -53,7 +65,7 @@ $date = $row['RegisterDate'];
             padding-right: 1cm;
             padding-top: 1mm;
             padding-bottom: 1mm;
-            font-size: 18px;
+            font-size: 17px;
             box-shadow: 0 15px 25px rgba(0,0,0,.5);
             background:rgba(0,0,0,.8);
             color: green;
@@ -73,8 +85,8 @@ $date = $row['RegisterDate'];
             color: white;
             width:fit-content;
             border-radius: 17px; 
-            margin-left: 6.2cm;
-            margin-top: 08mm;
+            margin-left: 6cm;
+            margin-top: 1cm;
         }
         .button
         {
@@ -83,7 +95,7 @@ $date = $row['RegisterDate'];
             height: 33px;
             color: white;
             background-color:#0097a7;
-            font-size: 15px;
+            font-size: 17px;
             border-radius: 17px;
             margin-left: 22cm;
             margin-top: 7mm;    
@@ -95,7 +107,7 @@ $date = $row['RegisterDate'];
         }
         body
         {
-            background-image:url(city.jpg);
+            background-image:url(Main_Image.jpg);
             background-size: cover;      
         }
         ul
@@ -121,7 +133,7 @@ $date = $row['RegisterDate'];
         }
         .dropbtn
         {
-            margin-left: 5cm;
+            margin-left: 5.4cm;
         }
         li a:hover,.dropdown:hover .dropbtn
         {
@@ -140,7 +152,7 @@ $date = $row['RegisterDate'];
             display:block;
             text-align: left;
             padding:05mm;  
-            margin-left: 3.7cm; 
+            margin-left: 4cm; 
         }
         .dropdown-content a
         {
@@ -159,10 +171,6 @@ $date = $row['RegisterDate'];
             padding-left: 1cm;
             padding-right: 1cm;
             color:black;
-        }
-        .id
-        {
-        visibility: hidden;
         }
         .s
         {
@@ -198,63 +206,55 @@ $date = $row['RegisterDate'];
     <div class="list">
     <ul>
     <li><h1 class="hh">  <i> AVMS </i> </h1></li>
-            <li><a href="Dash.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
-            <li><a href="Visitor.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
-            <li><a href="manage.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
-            <li><a href="report.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+            <li><a href="Dashboard.php"><i class="bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="Visitors.HTML"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+            <li><a href="Manage_Visitors.php"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+            <li><a href="Report_Page.HTML"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
             <li class="dropdown">
                 <a class="dropbtn"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
                 <div class="dropdown-content">    
-                    <a href="profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
-                    <a href="Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                    <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                    <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
                     <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 
-    <form action="search.php" method="post">
+    <form action="Search_Bar.php" method="post">
             <div class="search">
                 <input type="text" class="s" name="search" size="28cm" placeholder="Search Visitor by name or mobile number ">
                 <button type="submit" class="blue"><i class="bi-search"></i></button>
             </div>
     </form>
-    
-    <form action="profile2.php" method="post">
 
-        <h1 class="head"><b>Update Admin Profile</b></h1>
+
+        <form action="" method="post">
+
+        <h1 class="head"><b>Change Admin Password</b></h1>
 
     <div id="box">           
     <table>
        
         <tr>
-            <td><label for="name" >Admin Name</label></td>
-            <td><input type="text" id="name" name="name" class="p" value="<?php echo $an;?>" size="47cm"></td>
+            <td><label >Current Password</label></td>
+            <td><input type="password"  name="oldpass" class="p" size="47cm" placeholder="Enter Current Password" ></td>
         </tr>
 
         <tr>
-            <td><label for="phn" >Phone Number</label></td>
-            <td><input type="phone number" id="phn" class="p" required maxlength="10" size="47cm" value="<?php echo $mob;?>" name="number"></td>
+            <td><label >New Password</label></td>
+            <td><input type="password"  name="newpass" class="p" size="47cm" placeholder="Enter New Password" ></td>
         </tr>
 
         <tr>
-            <td><label for="email">Email</label></td>
-            <td><input type="email" id="email" name="email" class="p" size="47cm" value="<?php echo $mail;?>"></td>
-        </tr>
-
-        <tr>
-            <td><label for="date">Registration Date</label></td>
-            <td><input type="datetime" id="date" readonly value="<?php echo $date;?>" name="date" class="p" size="47"></td>
+            <td><label >Confirm Password</label></td>
+            <td><input type="password"  name="cnewpass" class="p" size="47cm" placeholder="Confirm New Password"></td>
         </tr>
 
     </table>
-    </div>
-            <button type="submit" name="update" class="button">Update</button>
+    </div> 
 
-            <div class="id">
-                <input type="text" value="<?php echo $id;?>" name="id">
-            </div>
-
-    </form>   
+        <input type="submit" name=save class="button" value="CHANGE">
+    </form>
 </body>
 </html>

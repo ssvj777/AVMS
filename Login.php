@@ -3,7 +3,7 @@
 $x=$_POST['uname'];
 $y=$_POST['pw'];
 
-$c=new mysqli("localhost","root","","Project");
+$c=new mysqli("localhost","root","","AVMS");
 $sql='select * from Admin';
 $table=$c->query($sql);
 if ($table->num_rows>0) {
@@ -14,7 +14,7 @@ if ($table->num_rows>0) {
         $ty=$r["Password"];
         if($x==$tx and $y==$ty)
         {
-            echo "<script type='text/javascript'> document.location='Dash.php'; </script>";
+            echo "<script type='text/javascript'> document.location='Dashboard.php'; </script>";
             $tmp++;
         }
     }

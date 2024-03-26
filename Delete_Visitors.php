@@ -1,6 +1,6 @@
 <?php
 $connection= mysqli_connect("localhost","root","");
-$db=mysqli_select_db($connection,'Project');
+$db=mysqli_select_db($connection,'AVMS');
 
 if(isset($_POST['delete']))
 {
@@ -11,12 +11,12 @@ if(isset($_POST['delete']))
 
     if($query_run)
     {
-        echo '<script> alert("deleted"); </script>';
-        header("location:manage.php");
+        echo '<script> alert("Visitor Deleted"); </script>';
+        header("location:Manage_Visitors.php");
     }
     else
     {
-        echo '<script> alert("not deleted"); </script>';
+        echo '<script> alert("Visitor not Deleted"); </script>';
     }
 }
 ?>

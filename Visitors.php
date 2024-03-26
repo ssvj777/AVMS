@@ -10,12 +10,12 @@ $who=$_POST["who"];
 $rsn=$_POST["rsn"];
 $mark=$_POST["mark"];
 
-$c=new mysqli("localhost","root","","Project");
+$c=new mysqli("localhost","root","","AVMS");
 $sql=$c->prepare('insert into Visitors values(?,?,?,?,?,?,?,?,?,?,?)');
 $sql->bind_param('sssssssssss',$id,$name,$cat,$cell,$add,$apn,$flr,$who,$rsn,$dt,$vis);
 $sql->execute();
 $c->close();
 
-echo "<script> alert('Visitor details added Successfully');window.location='visitor.html' </script>";
+echo "<script> alert('Visitor details added Successfully');window.location='Visitors.html' </script>";
 
 ?>
