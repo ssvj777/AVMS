@@ -1,0 +1,108 @@
+.head
+{
+    text-align: center;
+    font-style: italic;
+    margin-top: 1mm;
+}
+table
+{
+    border-style: solid;   
+    padding: .7cm;
+    border-radius: 17px;
+    font-size: 17px;
+    margin-top: 1mm;
+}
+.box-contents
+{
+    padding: 1mm 1cm 1mm 1cm;
+    font-size: 17px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    background:rgba(0,0,0,.8);
+    color: green;
+    border-radius: 17px;
+    background-image: visible;
+    opacity: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    border-color: rgba(0,0,0,.8);
+}
+.box
+{
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    background:rgba(0,0,0,.8);
+    width:fit-content;
+    border-radius: 17px; 
+    border-color: rgba(0,0,0,.8);
+    margin: 1% 22%;
+}
+label
+{
+    padding: 3mm;
+    font-size: 18px;
+    color: white;
+}
+.buttons
+{
+    display: flex;
+}
+.back-button
+{
+    background: blue;
+    color:black;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bolder;
+    font-style: italic;
+    border-radius: 17px;
+    border-color: blue;
+    border-style: solid;
+    margin: 0 0 0 22%;
+    width: 167px; 
+    height:33px;
+    scale: .9;
+    transition: all .5s;
+}
+.back-button:hover
+{
+    cursor: pointer;
+    scale: 1;
+}
+.edit-button
+{
+    border: solid 1px white;
+    width: 143px;
+    height: 33px;
+    color: white;
+    background-color: green;
+    font-size: 17px;
+    font-weight: bolder;
+    font-style: italic;
+    border-radius: 17px;
+    margin: 0 0 0 190%;
+    scale: .9;
+    transition: all .5s;
+}
+.edit-button:hover
+{
+    cursor: pointer;
+    scale: 1;
+}
+.delete-button
+{
+    border: solid 1px white;
+    width: 143px;
+    height: 33px;
+    color: white;
+    background-color:red;
+    font-size: 17px;
+    font-weight: bolder;
+    font-style: italic;
+    border-radius: 17px;
+    margin: 0 0 0 185%;
+    scale: .9;
+    transition: all .5s;
+}
+.delete-button:hover
+{
+    cursor: pointer;
+    scale: 1;
+}

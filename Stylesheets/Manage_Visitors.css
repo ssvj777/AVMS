@@ -1,0 +1,52 @@
+.head
+{
+    text-align: center;
+    font-style: italic;
+    margin-top: 3mm;   
+}
+table th,td
+{
+    border: 2px solid black;   
+    padding: 5mm;
+    border-radius: 1px;
+    font-size: 5mm;
+    text-align: center;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    background:rgba(0,0,0,.8);  
+}
+table th
+{
+    color:green;
+    background:black;
+}
+table td
+{
+    color: white;
+    text-align: center;
+}
+.box
+{
+    width:fit-content;
+    margin-left: 5.4cm;
+}
+.button
+{
+    border: solid 1px white;
+    width: 127px;
+    height: 33px;
+    color: white;
+    background-color:#0097a7;
+    font-size: 17px;
+    font-weight: bolder;
+    font-style: italic;
+    border-radius: 17px;
+    margin-top:3mm;
+    scale: .9;
+    transition: all .5s;
+}
+.button:hover
+{
+    cursor: pointer;
+    background:#069818 ;
+    scale:1;
+}

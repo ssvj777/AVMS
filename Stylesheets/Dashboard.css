@@ -1,0 +1,56 @@
+.head
+{
+    font-size:1.2cm;
+    text-align: center;
+    font-style: italic;
+    margin-top: 1mm;  
+}
+.dashboard
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:7%;
+}
+.widget 
+{
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 17px;
+    padding: 17px;
+    width: 300px;
+    color: #ffffff;
+    border-radius:17px;
+}
+.widget-1 
+{
+    background-color: #1abc9c;
+}
+.widget-2 
+{
+    background-color: #2ecc71;
+}
+.widget-3
+{
+    background-color: #9b59b6;
+}
+.widget-4 
+{
+    background-color: #3498db;
+}
+.widget-5 
+{
+    background-color: #F67280;
+}
+.widget h3 
+{
+    font-size: 47px;
+    margin: 5mm 0 0 7px;
+}
+.widget h1 
+{
+    font-size: 17px;
+    line-height: 3;
+    color:black; 
+    margin-bottom:0;
+    font-weight:bolder;
+}
