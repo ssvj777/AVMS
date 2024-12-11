@@ -1,0 +1,66 @@
+<?php
+$connection= mysqli_connect("localhost","root","","AVMS");
+
+$query="select * from admin";
+$result = mysqli_query($connection,$query);
+$row = mysqli_fetch_assoc($result);
+
+$name = $row['AdminName'];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css">
+    <link rel="stylesheet" href="Stylesheets/Report_Page.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<body>
+    <div class="list">
+        <ul>
+            <li><h1>  <i> AVMS </i> </h1></li>
+            <li><a href="Dashboard.php" class="items"><i class="bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="Visitors.HTML" class="items"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+            <li><a href="Manage_Visitors.php" class="items"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+            <li><a href="Report_Page.HTML" class="items"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+            <li class="admin-content" >
+                <a class="admin"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
+                <div class="admin-list">    
+                    <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                    <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                    <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <form action="Search_Bar.php" method="post">
+        <div class="search">
+            <input type="text" class="search-box" name="search" size="32cm" placeholder="Search Visitor by Name or Phone Number ">
+            <button type="submit" class="icon"><i class="bi-search"></i></button>
+        </div>
+    </form>
+
+    <form action="Report_Page.php" method="post">
+        <h1 class="head"><i><b>Between </b>Date Report</i></h1>
+        <div class="box">
+            <table>
+                <tr>
+                    <td><label>Start Date</label></td>
+                    <td><input type="date" name="start" class="box-contents" ></td>
+                </tr>
+                
+                <tr>
+                    <td><label for="to">End Date</label></td>
+                    <td><input type="date" name="end" class="box-contents"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <input type="submit" name="submit" value="SUBMIT" class="button">
+    </form>   
+</body>
+</html>

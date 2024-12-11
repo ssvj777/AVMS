@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invalid Login</title>
+    <style>
+		html,body
+		{
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: darkcyan;
+		}
+		.box 
+		{
+			display: flex;
+		}
+		.box .inner 
+		{
+			width: 400px;
+			height: 200px;
+			line-height: 200px;
+			font-size: 4em;
+			font-family: sans-serif;
+			font-weight: bold;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.box .inner:first-child 
+		{
+			background-color: rgba(0,0,0,.8);
+			color: #fff;
+			transform-origin: right;
+			transform: perspective(100px) rotateY(-15deg);
+		}
+		.box .inner:last-child 	
+		{	
+			background-color: rgba(0,0,0,.5);
+			color:#fff;
+			transform-origin: left;
+			transform: perspective(100px) rotateY(15deg);
+		}
+		.box .inner span 
+		{
+			position: absolute;
+			animation: marquee 5s linear infinite;
+		}
+		.box .inner:first-child span 
+		{
+			animation-delay: 2.5s;
+			left: -100%;
+		}
+		@keyframes marquee 
+		{
+			from {left: 100%;}
+			to {left: -100%;}
+		}			
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner">
+          <span>Invalid Login</span>
+        </div>
+        <div class="inner">
+          <span>Invalid Login</span>
+        </div>
+      </div>
+</body>
+</html>

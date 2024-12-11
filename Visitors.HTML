@@ -1,0 +1,104 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Visitors</title>
+        <link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css">
+        <link rel="stylesheet" href="Stylesheets/Visitors_Page.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    </head>
+    <body>
+        <div class="list">
+            <ul>
+                <li><h1>  <i> AVMS </i> </h1></li>
+                <li><a href="Dashboard.php" class="items"><i class="bi-speedometer2"></i> Dashboard</a></li>
+                <li><a href="Visitors.HTML" class="items"><i class="bi-person-plus-fill"></i> New Visitor</a></li>
+                <li><a href="Manage_Visitors.php" class="items"><i class="bi-people-fill"></i> Manage Visitors</a></li>
+                <li><a href="Report_Page.HTML" class="items"><i class="bi-pencil-square"></i> Visitors B/w Dates</a></li>
+                <li class="admin-content" >
+                    <a class="admin"> <i class="bi-person-lines-fill"></i>&emsp;Admin  <i class="bi-chevron-down"></i></a>
+                    <div class="admin-list">    
+                        <a href="Admin_Profile.php"> <i class="bi-person-circle"></i> &emsp;Admin Profile</a>
+                        <a href="Admin_Password.php"> <i class="bi-gear-fill"></i> &emsp;Change Password</a>
+                        <a href="Index.HTML"> <i class="bi-power"></i> &emsp;Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <form action="Search_Bar.php" method="post">
+            <div class="search">
+                <input type="text" class="search-box" name="search" size="32cm" placeholder="Search Visitor by Name or Phone Number ">
+                <button type="submit" class="icon"><i class="bi-search"></i></button>
+            </div>
+        </form>
+
+        <form action="Visitors.php" method="post">
+            <h1 class="head"><b>Add New Visitors</b></h1>
+            <div class="box">
+                <table>
+                    <tr>
+                        <td><label for="un" >Visitor Name</label></td>
+                        <td><input type="text" id="un" name="un" class="box-contents" size="52cm" placeholder=" Visitor Name"></td>
+                    </tr>
+
+                    <tr>
+                        <td><span for="cat">Category</span></td>
+                        <td>
+                            <select name="cat" id="cat" class="box-contents">
+                                <option value="Choose Your Category" > Choose Your Category  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; </option>
+                                <option value="Family" >  &emsp;  Family</option>
+                                <option value="Friend">  &emsp;  Friend</option>
+                                <option value="Cook">  &emsp;  Cook</option>
+                                <option value="Driver">  &emsp;  Driver</option>
+                                <option value="Maid">  &emsp;  Maid</option>
+                                <option value="Security">  &emsp;  Security</option>
+                                <option value="Newspaper">  &emsp;  Newspaper</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="mob" >Mobile Number</label></td>
+                        <td><input type="text" id="mob" name="mob" class="box-contents" required maxlength="10" size="52cm" placeholder=" Mobile Number"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="add">Address</label></td>
+                        <td><textarea name="add" id="add"  cols="50" rows="5" class="box-contents" placeholder="Enter Visitor Address..." ></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="apn">Apartment Name</label></td>
+                        <td><input type="text" id="apn" name="apn" class="box-contents" size="52cm" placeholder=" Apartment Name"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="floor">Room Number</label></td>
+                        <td><input type="text" id="floor" name="floor" class="box-contents" size="52cm" placeholder=" Room No"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="who">Whom to Meet</label></td>
+                        <td><input type="text" id="who" name="who" class="box-contents" size="52cm" placeholder=" Whom to Meet"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="rsn">Reason to Meet</label></td>
+                        <td><input type="text" id="rsn" name="rsn" class="box-contents"size="52cm"  placeholder=" Reason to Meet"></td>
+                    </tr>
+                </table>
+            </div>
+        
+            <button class="button"> ADD VISITOR</button>
+            <div class="false">
+                <tr>
+                    <td><label for="mark">Remark</label></td>
+                    <td><input type="text" class="box-contents" name="mark" size="52cm"></td>
+                </tr>
+            </div>
+        </form>   
+    </body>
+    </html>
