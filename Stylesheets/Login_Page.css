@@ -1,8 +1,7 @@
 body
 {
-    background: url(Login_Image.jpg) no-repeat center;
+    background: url(Login_Image.jpg) no-repeat;
     background-size: cover;
-    background-attachment: fixed;
 }
 #box
 {
