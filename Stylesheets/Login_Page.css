@@ -1,11 +1,8 @@
 body
 {
-    display: flex;
     background: url(Login_Image.jpg) no-repeat center;
-    height: 100vh;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 500px;
 }
 #box
 {
