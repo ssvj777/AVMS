@@ -13,38 +13,32 @@
         <h1 class="head"><b>Apartment Visitor Management System</b></h1>
         <h1 class="head"><b>(AVMS)</b></h1>
 
-            <div id="box">
-                <h2>Login Page</h2>
+        <div id="box">
+            <h2>Login Page</h2>
 
-                <div class="details">
-                    <input type="text" id="uname" name="uname" required maxlength="12"size="28">
-                    <label for="uname"> <i class="bi-person-fill"></i>&emsp;Admin Name</label><br><br>
-                </div>
-
-                <div class="details">
-                    <input type="password" id="pw" name="pw" required maxlength="12"  size="28">
-                    <label for="pw" ><i class="bi-lock-fill"></i>&emsp;Password</label>
-                    <span onclick="myfunction()" class="eye-button"><i class="bi bi-eye-fill"></i></span>
-                    <br><br>
-                </div>
-
-                <button class="button"> LOGIN </button><br><br>
-
-                <!-- <a href="forget.HTML">Forgetten Password?</a><br> -->
-        
+            <div class="details">
+                <input type="text" id="uname" name="uname" required maxlength="12">
+                <label for="uname"><i class="bi-person-fill"></i>&emsp;Admin Name</label>
             </div>
+
+            <div class="details">
+                <input type="password" id="pw" name="pw" required maxlength="12">
+                <label for="pw"><i class="bi-lock-fill"></i>&emsp;Password</label>
+                <span onclick="myfunction()" class="eye-button"><i class="bi bi-eye-fill"></i></span>
+            </div>
+
+            <button class="button" type="submit">LOGIN</button>
+            <!-- <a href="forget.HTML">Forgotten Password?</a> -->
+        </div>
     </form>
+
     <script>
-        function myfunction()
-        {
+        function myfunction() {
             var x = document.getElementById("pw");
-            if (x.type === "password")
-            {
-                x.type="text";
-            }
-            else
-            {
-                x.type= "password";
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
             }
         }
     </script>
