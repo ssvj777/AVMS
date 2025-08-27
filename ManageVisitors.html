@@ -1,15 +1,22 @@
-<!-- <?php
-    $connection=mysqli_connect("localhost","root","",);
-    $db=mysqli_select_db($connection,'AVMS');
 
-    $query="select * from Visitors";
-    $query_run=mysqli_query($connection,$query);
-?> -->
-<title>ManageVisitors</title>
-<link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
-<link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css">
-<link rel="stylesheet" href="Stylesheets/Manage_Visitors.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>ManageVisitors</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css" />
+    <link rel="stylesheet" href="./Stylesheets/Manage_Visitors.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
 
     <!-- googele fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,43 +34,43 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+  </head>
+  <body></body>
+</html>
 <body>
-    <div class="list">
-      <ul>
+  <div class="list">
+    <ul>
+      <div>
+        <li>
+          <h1 class="name"><i> AVMS </i></h1>
+        </li>
+      </div>
+      <div class="navbarContents">
+        <li>
+          <a href="./Index.html" class="items"
+            ><i class="bi-speedometer2"></i> Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="./CreateVisitors.html" class="items"
+            ><i class="bi-person-plus-fill"></i> New Visitor</a
+          >
+        </li>
+        <li>
+          <a href="./ManageVisitors.html" class="items"
+            ><i class="bi-people-fill"></i> Manage Visitors</a
+          >
+        </li>
+        <li>
+          <a href="./GenerateReportPage.html" class="items"
+            ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
+          >
+        </li>
+      </div>
+      <div class="mobileView">
         <div>
-          <li>
-            <h1 class="name"><i> AVMS </i></h1>
-          </li>
-        </div>
-        <div class="navbarContents">
-          <li>
-            <a href="./Index.html" class="items"
-              ><i class="bi-speedometer2"></i> Dashboard</a
-            >
-          </li>
-          <li>
-            <a href="./CreateVisitors.html" class="items"
-              ><i class="bi-person-plus-fill"></i> New Visitor</a
-            >
-          </li>
-          <li>
-            <a href="./ManageVisitors.html" class="items"
-              ><i class="bi-people-fill"></i> Manage Visitors</a
-            >
-          </li>
-          <li>
-            <a href="./GenerateReportPage.html" class="items"
-              ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
-            >
-          </li>
-        </div>
-        <div class="mobileView">
-        <div>
-            
           <li class="admin-content">
-            <a class="admin">
-              A
-            </a>
+            <a class="admin"> A </a>
             <div class="admin-list">
               <a href="./AdminProfile.html">
                 <i class="bi-person-circle"></i>Admin Profile</a
@@ -76,82 +83,87 @@
           </li>
         </div>
         <div class="navbar-menu-toggle" onclick="showNavbar()">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-      </div>
-      </ul>
-    </div>
-
-    <!-- side navbar -->
-    <div class="side-navbar">
-      <p class="x-icon" onclick="closeNavbar()">
-        <i class="fa-solid fa-xmark"></i>
-      </p>
-
-      <div class="side-navbar-links">
-
-            <a href="./Index.html" class="items"
-              ><i class="bi-speedometer2"></i> Dashboard</a
-            >
-          
-          
-            <a href="./CreateVisitors.html" class="items"
-              ><i class="bi-person-plus-fill"></i> New Visitor</a
-            >
-       
-            <a href="./ManageVisitors.html" class="items"
-              ><i class="bi-people-fill"></i> Manage Visitors</a
-            >
-      
-            <a href="./GenerateReportPage.html" class="items"
-              ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
-            >
-      
+          <i class="fa-solid fa-bars"></i>
         </div>
+      </div>
+    </ul>
+  </div>
+
+  <!-- side navbar -->
+  <div class="side-navbar">
+    <p class="x-icon" onclick="closeNavbar()">
+      <i class="fa-solid fa-xmark"></i>
+    </p>
+
+    <div class="side-navbar-links">
+      <a href="./Index.html" class="items"
+        ><i class="bi-speedometer2"></i> Dashboard</a
+      >
+
+      <a href="./CreateVisitors.html" class="items"
+        ><i class="bi-person-plus-fill"></i> New Visitor</a
+      >
+
+      <a href="./ManageVisitors.html" class="items"
+        ><i class="bi-people-fill"></i> Manage Visitors</a
+      >
+
+      <a href="./GenerateReportPage.html" class="items"
+        ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
+      >
     </div>
+  </div>
 
-    <form>
-        <div class="search">
-            <input type="text" class="search-box" name="search" size="32cm" placeholder="Search Visitor by Name or Phone Number ">
-            <button type="submit" class="icon"><i class="bi-search"></i></button>
-        </div>
-    </form>
-    
-    <h1 class="head"><b>Manage Visitors</b></h1>
-    <div class="box">
-        <table >
-            <tr>
-                <th> Visitor Name </th>
-                <th> Category </th>
-                <th> Mobile Number </th>
-                <th> Apartment Name </th>
-                <th> Whom to Meet </th>
-                <th> Action </th>
-            </tr>
+  <form>
+    <div class="search">
+      <input
+        type="text"
+        class="search-box"
+        name="search"
+        size="32cm"
+        placeholder="Search Visitor by Name or Phone Number "
+      />
+      <button type="submit" class="icon"><i class="bi-search"></i></button>
+    </div>
+  </form>
 
-            <!-- <?php 
+  <h1 class="head"><b>Manage Visitors</b></h1>
+  <div class="box">
+    <table>
+      <tr>
+        <th>Visitor Name</th>
+        <th>Category</th>
+        <th>Mobile Number</th>
+        <th>Apartment Name</th>
+        <th>Whom to Meet</th>
+        <th>Action</th>
+      </tr>
+
+      <!-- <?php 
                 if($query_run)
                 {
                     while($row = mysqli_fetch_array($query_run))
                     {
                         $id = $row['id'];
                         ?> -->
-                        <tbody>
-                            <tr>
-                                <td>Vijay </td>
-                                <td>Friend </td>
-                                <td>9876543210 </td>
-                                <td>07 </td>
-                                <td>Hari </td>
-                                <td>
-                                    <form >
-                                        <!-- <input type="hidden" name="id" value=""> -->
-                                        <button onclick="handleSubmit()" class="button">View Details</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <!-- <?php
+      <tbody>
+        <tr>
+          <td>Vijay</td>
+          <td>Friend</td>
+          <td>9876543210</td>
+          <td>07</td>
+          <td>Hari</td>
+          <td>
+            <form>
+              <!-- <input type="hidden" name="id" value=""> -->
+              <button onclick="handleSubmit()" class="button">
+                View Details
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+      <!-- <?php
                     }
                 }
                 else
@@ -159,8 +171,8 @@
         
                 }
             ?> -->
-        </table>
-    </div>
-        <!-- JavaScript File -->
-    <script src="./assets/script.js"></script>
+    </table>
+  </div>
+  <!-- JavaScript File -->
+  <script src="./assets/script.js"></script>
 </body>
