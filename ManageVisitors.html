@@ -1,26 +1,16 @@
-<?php
-$connection= mysqli_connect("localhost","root","","AVMS");
+<!-- <?php
+    $connection=mysqli_connect("localhost","root","",);
+    $db=mysqli_select_db($connection,'AVMS');
 
-$query="select * from admin";
-$result = mysqli_query($connection,$query);
-$row = mysqli_fetch_assoc($result);
+    $query="select * from Visitors";
+    $query_run=mysqli_query($connection,$query);
+?> -->
+<title>ManageVisitors</title>
+<link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+<link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css">
+<link rel="stylesheet" href="Stylesheets/Manage_Visitors.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-$name = $row['AdminName'];
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css" />
-    <link rel="stylesheet" href="Stylesheets/Dashboard.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-    />
     <!-- googele fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,8 +27,7 @@ $name = $row['AdminName'];
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-  </head>
-  <body>
+<body>
     <div class="list">
       <ul>
         <div>
@@ -121,58 +110,57 @@ $name = $row['AdminName'];
         </div>
     </div>
 
-    <h1 class="head">
-      Welcome
-      <?php echo $name;?>!
-    </h1>
-    <div class="dashboard">
-      <div class="widget widget-1">
-        <?php 
-                    $result = mysqli_query($connection,"SELECT COUNT(*) AS total FROM Visitors WHERE DATE(Date_of_Visit) = DATE(Now())");
-                    $row= mysqli_fetch_assoc($result);
-                    $total_Visitors = $row['total'];
-                ?>
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>
-          Today's Visitors:
-          <?php echo $total_Visitors; ?>
-        </h1>
-      </div>
+    <form>
+        <div class="search">
+            <input type="text" class="search-box" name="search" size="32cm" placeholder="Search Visitor by Name or Phone Number ">
+            <button type="submit" class="icon"><i class="bi-search"></i></button>
+        </div>
+    </form>
+    
+    <h1 class="head"><b>Manage Visitors</b></h1>
+    <div class="box">
+        <table >
+            <tr>
+                <th> Visitor Name </th>
+                <th> Category </th>
+                <th> Mobile Number </th>
+                <th> Apartment Name </th>
+                <th> Whom to Meet </th>
+                <th> Action </th>
+            </tr>
 
-      <div class="widget widget-2">
-        <?php 
-                    $query1=mysqli_query($connection,"select id from visitors where date(Date_of_Visit)=CURDATE()-1;");
-                    $count_yesterday_visitors=mysqli_num_rows($query1);
-                ?>
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>
-          Yesterday's Visitors:
-          <?php echo $count_yesterday_visitors?>
-        </h1>
-      </div>
-
-      <div class="widget widget-3">
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>Last 7 Days Visitors: 0</h1>
-      </div>
-
-      <div class="widget widget-4">
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>Last 30 Days Visitors: 0</h1>
-      </div>
-
-      <div class="widget widget-6">
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>Total Visitors This Year: 2</h1>
-      </div>
-
-      <div class="widget widget-5">
-        <h3><i class="bi-people-fill"></i></h3>
-        <h1>Total Visitors Till Date: 4</h1>
-      </div>
+            <!-- <?php 
+                if($query_run)
+                {
+                    while($row = mysqli_fetch_array($query_run))
+                    {
+                        $id = $row['id'];
+                        ?> -->
+                        <tbody>
+                            <tr>
+                                <td>Vijay </td>
+                                <td>Friend </td>
+                                <td>9876543210 </td>
+                                <td>07 </td>
+                                <td>Hari </td>
+                                <td>
+                                    <form >
+                                        <!-- <input type="hidden" name="id" value=""> -->
+                                        <button onclick="handleSubmit()" class="button">View Details</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- <?php
+                    }
+                }
+                else
+                {
+        
+                }
+            ?> -->
+        </table>
     </div>
-
-    <!-- JavaScript File -->
+        <!-- JavaScript File -->
     <script src="./assets/script.js"></script>
-  </body>
-</html>
+</body>

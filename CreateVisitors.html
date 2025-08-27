@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Visitors</title>
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="Stylesheets/Common_Stylesheet.css" />
+    <link rel="stylesheet" href="Stylesheets/Visitors_Page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <!-- googele fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="list">
+      <ul>
+        <div>
+          <li>
+            <h1 class="name"><i> AVMS </i></h1>
+          </li>
+        </div>
+        <div class="navbarContents">
+          <li>
+            <a href="./Index.html" class="items"
+              ><i class="bi-speedometer2"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a href="./CreateVisitors.html" class="items"
+              ><i class="bi-person-plus-fill"></i> New Visitor</a
+            >
+          </li>
+          <li>
+            <a href="./ManageVisitors.html" class="items"
+              ><i class="bi-people-fill"></i> Manage Visitors</a
+            >
+          </li>
+          <li>
+            <a href="./GenerateReportPage.html" class="items"
+              ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
+            >
+          </li>
+        </div>
+        <div class="mobileView">
+          <div>
+            <li class="admin-content">
+              <a class="admin"> A </a>
+              <div class="admin-list">
+                <a href="./AdminProfile.html">
+                  <i class="bi-person-circle"></i>Admin Profile</a
+                >
+                <a href="./AdminPassword.html">
+                  <i class="bi-gear-fill"></i>Change Password</a
+                >
+                <a href="./LoginPage.html"> <i class="bi-power"></i>Logout</a>
+              </div>
+            </li>
+          </div>
+          <div class="navbar-menu-toggle" onclick="showNavbar()">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <!-- side navbar -->
+    <div class="side-navbar">
+      <p class="x-icon" onclick="closeNavbar()">
+        <i class="fa-solid fa-xmark"></i>
+      </p>
+
+      <div class="side-navbar-links">
+        <a href="./Index.html" class="items"
+          ><i class="bi-speedometer2"></i> Dashboard</a
+        >
+
+        <a href="./CreateVisitors.html" class="items"
+          ><i class="bi-person-plus-fill"></i> New Visitor</a
+        >
+
+        <a href="./ManageVisitors.html" class="items"
+          ><i class="bi-people-fill"></i> Manage Visitors</a
+        >
+
+        <a href="./GenerateReportPage.html" class="items"
+          ><i class="bi-pencil-square"></i> Visitors B/w Dates</a
+        >
+      </div>
+    </div>
+
+
+    <form>
+      <h1 class="head"><b>Add New Visitors</b></h1>
+      <div class="box">
+        <table>
+          <tr>
+            <td><label for="un">Visitor Name</label></td>
+            <td>
+              <input
+                type="text"
+                id="un"
+                name="un"
+                class="box-contents"
+                placeholder=" Visitor Name"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><span for="cat">Category</span></td>
+            <td>
+              <select name="cat" id="cat" class="box-contents">
+                <option value="Choose Your Category">
+                  Choose Your Category
+                </option>
+                <option value="Family">Family</option>
+                <option value="Friend">Friend</option>
+                <option value="Cook">Cook</option>
+                <option value="Driver">Driver</option>
+                <option value="Maid">Maid</option>
+                <option value="Security">Security</option>
+                <option value="Newspaper">Newspaper</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="mob">Mobile Number</label></td>
+            <td>
+              <input
+                type="text"
+                id="mob"
+                name="mob"
+                class="box-contents"
+                required
+                maxlength="10"
+                placeholder=" Mobile Number"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="add">Address</label></td>
+            <td>
+              <textarea
+                name="add"
+                id="add"
+                class="box-contents"
+                placeholder="Enter Visitor Address..."
+                rows="4"
+              ></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="apn">Apartment Name</label></td>
+            <td>
+              <input
+                type="text"
+                id="apn"
+                name="apn"
+                class="box-contents"
+                placeholder=" Apartment Name"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="floor">Room Number</label></td>
+            <td>
+              <input
+                type="text"
+                id="floor"
+                name="floor"
+                class="box-contents"
+                placeholder=" Room No"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="who">Whom to Meet</label></td>
+            <td>
+              <input
+                type="text"
+                id="who"
+                name="who"
+                class="box-contents"
+                placeholder=" Whom to Meet"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="rsn">Reason to Meet</label></td>
+            <td>
+              <input
+                type="text"
+                id="rsn"
+                name="rsn"
+                class="box-contents"
+                placeholder=" Reason to Meet"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <button onclick="handleSubmit()" class="button">ADD VISITOR</button>
+      <div class="false">
+        <tr>
+          <td><label for="mark">Remark</label></td>
+          <td>
+            <input type="text" class="box-contents" name="mark"/>
+          </td>
+        </tr>
+      </div>
+    </form>
+    <!-- JavaScript File -->
+    <script src="./assets/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVMS Login Page</title>
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+    <!-- googele fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="./assets/stylesheets/loginPage.css">
+</head>
+
+<body>
+ 
+        <!-- heading session -->
+        <div class="header">
+            <h1><b>Apartment Visitors Management System</b></h1>
+            <h2><b>(AVMS)</b></h2>
+        </div>
+
+        <!-- container session -->
+        <div class="container">
+
+            <h2>Login Page</h2>
+
+            <div class="details">
+                <input type="text" id="UserName" name="UserName" required maxlength="12" size="28">
+                <label for="UserName"> <i class="fa-solid fa-user"></i>&emsp;Admin Name</label>
+            </div>
+
+            <div class="details">
+                <input type="password" id="PassWord" name="PassWord" required maxlength="12" size="28">
+                <label for="PassWord"><i class="fa-solid fa-lock"></i></i>&emsp;Password</label>
+
+                <!-- eye icon session -->
+                <p><i class="fa fa-eye" id="show" aria-hidden="true" onclick="showpw()"></i> <i class="fa fa-eye-slash"
+                        aria-hidden="true" id="hide" onclick="hidepw()"></i></p>
+            </div>
+
+            <button class="btn btn-primary" onclick="handleLogin()"> LOGIN </button>
+        </div>
+    </form>
+
+    <!-- script file link -->
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>

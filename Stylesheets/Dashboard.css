@@ -1,23 +1,31 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
 .head
 {
     font-size:1.2cm;
     text-align: center;
     font-style: italic;
-    margin-top: 1mm;  
+    margin: 22px;  
 }
 .dashboard
 {
     display: flex;
     flex-wrap: wrap;
-    margin-left:7%;
+    justify-content: space-around;
+    gap: 22px;
+    padding: 28px;
+
 }
 .widget 
 {
     border: 1px solid #cccccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin: 17px;
     padding: 17px;
-    width: 300px;
+    width: 333px;
+    height: 150px;
     color: #ffffff;
     border-radius:17px;
 }
@@ -38,6 +46,12 @@
     background-color: #3498db;
 }
 .widget-5 
+{
+    background-color: #d4a627;
+    
+}
+
+.widget-6 
 {
     background-color: #F67280;
 }
