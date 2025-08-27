@@ -20,10 +20,10 @@ body{
 .side-navbar {
     background-color:rgb(1, 1, 167);
     border-bottom: 1px solid rgba(140,150,170,.15);
-    width: 50%;
+    width: 60%;
     height: 100%;
     position: fixed;
-    left: -60%;
+    left: -70%;
     top: 0;
     padding: 100px 22px 28px 22px;
     transition: 1s;
