@@ -55,7 +55,7 @@ table td
     scale:1;
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:700px) {
     table tr {
         display: grid;
         gap: 3px;
@@ -70,4 +70,5 @@ table td
     margin-right: 20%;
 
 }
+
 }
