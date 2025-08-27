@@ -6,7 +6,7 @@ function showNavbar(){
 }
 
 function closeNavbar(){
-    sidenav.style.left = "-70%"
+    sidenav.style.left = "-75%"
 }
 
 //Connect with Database Alert
